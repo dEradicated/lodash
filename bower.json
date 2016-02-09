@@ -1,0 +1,21 @@
+{
+    "name": "bower-lodash",
+    "version": "4.3.0",
+    "description": "Updated lodash for Bower",
+    "main": "lodash.js",
+    "license": "MIT",
+    "ignore": [
+        ".*",
+        "*.custom.*",
+        "*.log",
+        "*.map",
+        "*.md",
+        "lodash.js",
+        "package.json",
+        "doc",
+        "node_modules",
+        "perf",
+        "test",
+        "vendor"
+    ]
+}
