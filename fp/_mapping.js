@@ -57,8 +57,8 @@ exports.aryMethod = {
     'spread', 'template', 'trim', 'trimEnd', 'trimStart', 'uniqueId', 'words'
   ],
   '2': [
-    'add', 'after', 'ary', 'assign', 'assignIn', 'at', 'before', 'bind', 'bindKey',
-    'chunk', 'cloneDeepWith', 'cloneWith', 'concat', 'countBy', 'curryN',
+    'add', 'after', 'ary', 'assign', 'assignIn', 'at', 'before', 'bind', 'bindAll',
+    'bindKey', 'chunk', 'cloneDeepWith', 'cloneWith', 'concat', 'countBy', 'curryN',
     'curryRightN', 'debounce', 'defaults', 'defaultsDeep', 'delay', 'difference',
     'divide', 'drop', 'dropRight', 'dropRightWhile', 'dropWhile', 'endsWith',
     'eq', 'every', 'filter', 'find', 'find', 'findIndex', 'findKey', 'findLast',
@@ -164,6 +164,10 @@ exports.methodRearg = {
 exports.methodSpread = {
   'invokeArgs': 2,
   'invokeArgsMap': 2,
+  'over': 0,
+  'overArgs': 1,
+  'overEvery': 0,
+  'overSome': 0,
   'partial': 1,
   'partialRight': 1,
   'without': 1
@@ -249,6 +253,8 @@ exports.skipRearg = {
   'add': true,
   'assign': true,
   'assignIn': true,
+  'bind': true,
+  'bindKey': true,
   'concat': true,
   'difference': true,
   'divide': true,
@@ -261,6 +267,7 @@ exports.skipRearg = {
   'matchesProperty': true,
   'merge': true,
   'multiply': true,
+  'overArgs': true,
   'partial': true,
   'partialRight': true,
   'random': true,
