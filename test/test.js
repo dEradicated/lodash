@@ -3493,7 +3493,7 @@
       assert.deepEqual(actual, expected);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var actual = _.countBy(['one', 'two', 'three'], 'length');
@@ -4982,19 +4982,19 @@
       assert.deepEqual(args, [4, 3, array]);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.dropRightWhile(objects, { 'b': 2 }), objects.slice(0, 2));
     });
 
-    QUnit.test('should work with "_.matchesProperty" shorthands', function(assert) {
+    QUnit.test('should work with `_.matchesProperty` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.dropRightWhile(objects, ['b', 2]), objects.slice(0, 2));
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.dropRightWhile(objects, 'b'), objects.slice(0, 1));
@@ -5052,19 +5052,19 @@
       assert.deepEqual(args, [1, 0, array]);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.dropWhile(objects, { 'b': 2 }), objects.slice(1));
     });
 
-    QUnit.test('should work with "_.matchesProperty" shorthands', function(assert) {
+    QUnit.test('should work with `_.matchesProperty` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.dropWhile(objects, ['b', 2]), objects.slice(1));
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.dropWhile(objects, 'b'), objects.slice(2));
@@ -5340,7 +5340,7 @@
       assert.deepEqual(actual, expected);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(2);
 
       var objects = [{ 'a': 0, 'b': 1 }, { 'a': 1, 'b': 2 }];
@@ -5348,7 +5348,7 @@
       assert.strictEqual(_.every(objects, 'b'), true);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(2);
 
       var objects = [{ 'a': 0, 'b': 0 }, { 'a': 0, 'b': 1 }];
@@ -5627,19 +5627,19 @@
         assert.strictEqual(func(objects, function(object) { return object.a === 3; }), expected[1]);
       });
 
-      QUnit.test('should work with "_.matches" shorthands', function(assert) {
+      QUnit.test('should work with `_.matches` shorthands', function(assert) {
         assert.expect(1);
 
         assert.strictEqual(func(objects, { 'b': 2 }), expected[2]);
       });
 
-      QUnit.test('should work with "_.matchesProperty" shorthands', function(assert) {
+      QUnit.test('should work with `_.matchesProperty` shorthands', function(assert) {
         assert.expect(1);
 
         assert.strictEqual(func(objects, ['b', 2]), expected[2]);
       });
 
-      QUnit.test('should work with "_.property" shorthands', function(assert) {
+      QUnit.test('should work with `_.property` shorthands', function(assert) {
         assert.expect(1);
 
         assert.strictEqual(func(objects, 'b'), expected[3]);
@@ -5857,7 +5857,7 @@
       assert.deepEqual(actual, expected);
     });
 
-    QUnit.test('`_.' + methodName + '` should work with "_.property" shorthands', function(assert) {
+    QUnit.test('`_.' + methodName + '` should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var objects = [{ 'a': [1, 2] }, { 'a': [3, 4] }];
@@ -6943,14 +6943,14 @@
     QUnit.test('should not support deep paths', function(assert) {
       assert.expect(1);
 
-      var actual = _.fromPairs([['a.b.c', 1]]);
-      assert.deepEqual(actual, { 'a.b.c': 1 });
+      var actual = _.fromPairs([['a.b', 1]]);
+      assert.deepEqual(actual, { 'a.b': 1 });
     });
 
     QUnit.test('should support consuming the return value of `_.toPairs`', function(assert) {
       assert.expect(1);
 
-      var object = { 'a.b.c': 1 };
+      var object = { 'a.b': 1 };
       assert.deepEqual(_.fromPairs(_.toPairs(object)), object);
     });
 
@@ -7027,7 +7027,7 @@
       assert.deepEqual(actual, expected);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var actual = _.groupBy(['one', 'two', 'three'], 'length');
@@ -7159,13 +7159,13 @@
     QUnit.test('`_.' + methodName + '` should support deep paths', function(assert) {
       assert.expect(4);
 
-      var object = { 'a': { 'b': { 'c': 3 } } };
+      var object = { 'a': { 'b': 2 } };
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
         assert.strictEqual(func(object, path), true);
       });
 
-      lodashStable.each(['a.c.b', ['a', 'c', 'b']], function(path) {
+      lodashStable.each(['a.a', ['a', 'a']], function(path) {
         assert.strictEqual(func(object, path), false);
       });
     });
@@ -7242,9 +7242,9 @@
     QUnit.test('`_.' + methodName + '` should check for a key over a path', function(assert) {
       assert.expect(2);
 
-      var object = { 'a.b.c': 3, 'a': { 'b': { 'c': 4 } } };
+      var object = { 'a.b': 1 };
 
-      lodashStable.each(['a.b.c', ['a.b.c']], function(path) {
+      lodashStable.each(['a.b', ['a.b']], function(path) {
         assert.strictEqual(func(object, path), true);
       });
     });
@@ -7329,13 +7329,13 @@
       });
     });
 
-    QUnit.test('`_.' + methodName + '` should return `false` for nested nullish values', function(assert) {
+    QUnit.test('`_.' + methodName + '` should return `false` for nullish values of nested objects', function(assert) {
       assert.expect(2);
 
       var values = [, null, undefined],
           expected = lodashStable.map(values, alwaysFalse);
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
         var actual = lodashStable.map(values, function(value, index) {
           var object = index ? { 'a': value } : {};
           return func(object, path);
@@ -8095,7 +8095,7 @@
 
       var actual = lodashStable.map(values, function(value) {
         try {
-          return _.invoke(value, 'a.b.c', 1, 2);
+          return _.invoke(value, 'a.b', 1, 2);
         } catch (e) {}
       });
 
@@ -11753,11 +11753,11 @@
       assert.strictEqual(matches(array), true);
     });
 
-    QUnit.test('should support deep paths for "_.matchesProperty" shorthands', function(assert) {
+    QUnit.test('should support deep paths for `_.matchesProperty` shorthands', function(assert) {
       assert.expect(1);
 
-      var object = { 'a': { 'b': { 'c': { 'd': 1, 'e': 2 } } } },
-          matches = _.iteratee(['a.b.c', { 'e': 2 }]);
+      var object = { 'a': { 'b': { 'c': 1, 'd': 2 } } },
+          matches = _.iteratee(['a.b', { 'c': 1 }]);
 
       assert.strictEqual(matches(object), true);
     });
@@ -11803,13 +11803,13 @@
       assert.strictEqual(prop(array), 'a');
     });
 
-    QUnit.test('should support deep paths for "_.property" shorthands', function(assert) {
+    QUnit.test('should support deep paths for `_.property` shorthands', function(assert) {
       assert.expect(1);
 
-      var object = { 'a': { 'b': { 'c': 3 } } },
-          prop = _.iteratee('a.b.c');
+      var object = { 'a': { 'b': 2 } },
+          prop = _.iteratee('a.b');
 
-      assert.strictEqual(prop(object), 3);
+      assert.strictEqual(prop(object), 2);
     });
 
     QUnit.test('should work with functions created by `_.partial` and `_.partialRight`', function(assert) {
@@ -12467,7 +12467,7 @@
       assert.deepEqual(actual, expected);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var expected = { 'left': { 'dir': 'left', 'code': 97 }, 'right': { 'dir': 'right', 'code': 100 } },
@@ -13037,7 +13037,7 @@
       assert.deepEqual(_.map(object, String), expected);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var objects = [{ 'a': 'x' }, { 'a': 'y' }];
@@ -13197,7 +13197,7 @@
       assert.deepEqual(actual, { '1': 1, '2': 2 });
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var actual = _.mapKeys({ 'a': { 'b': 'c' } }, 'b');
@@ -13241,7 +13241,7 @@
       assert.deepEqual(actual, { '0': '1', '1': '2' });
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var actual = _.mapValues({ 'a': { 'b': 1 } }, 'b');
@@ -13694,10 +13694,10 @@
     QUnit.test('should support deep paths', function(assert) {
       assert.expect(2);
 
-      var object = { 'a': { 'b': { 'c': 3 } } };
+      var object = { 'a': { 'b': 2 } };
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
-        var matches = _.matchesProperty(path, 3);
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
+        var matches = _.matchesProperty(path, 2);
         assert.strictEqual(matches(object), true);
       });
     });
@@ -13729,10 +13729,10 @@
     QUnit.test('should match a key over a path', function(assert) {
       assert.expect(2);
 
-      var object = { 'a.b.c': 3, 'a': { 'b': { 'c': 4 } } };
+      var object = { 'a.b': 1, 'a': { 'b': 2 } };
 
-      lodashStable.each(['a.b.c', ['a.b.c']], function(path) {
-        var matches = _.matchesProperty(path, 3);
+      lodashStable.each(['a.b', ['a.b']], function(path) {
+        var matches = _.matchesProperty(path, 1);
         assert.strictEqual(matches(object), true);
       });
     });
@@ -13759,7 +13759,7 @@
       });
     });
 
-    QUnit.test('should return `false` with deep paths when `object` is nullish', function(assert) {
+    QUnit.test('should return `false` for deep paths when `object` is nullish', function(assert) {
       assert.expect(2);
 
       var values = [, null, undefined],
@@ -13968,6 +13968,22 @@
       assert.deepEqual(actual, expected);
     });
 
+    QUnit.test('should match `undefined` values of nested objects', function(assert) {
+      assert.expect(4);
+
+      var object = { 'a': { 'b': undefined } };
+
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
+        var matches = _.matchesProperty(path, undefined);
+        assert.strictEqual(matches(object), true);
+      });
+
+      lodashStable.each(['a.a', ['a', 'a']], function(path) {
+        var matches = _.matchesProperty(path, undefined);
+        assert.strictEqual(matches(object), false);
+      });
+    });
+
     QUnit.test('should match `undefined` values on primitives', function(assert) {
       assert.expect(2);
 
@@ -14131,7 +14147,7 @@
       assert.deepEqual(args, [{ 'a': 2 }]);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(2);
 
       var arrays = [[2], [3], [1]];
@@ -14843,11 +14859,11 @@
     QUnit.test('should work with deep property values', function(assert) {
       assert.expect(2);
 
-      var object = { 'a': { 'b': { 'c': alwaysThree } } };
+      var object = { 'a': { 'b': alwaysTwo } };
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
         var method = _.method(path);
-        assert.strictEqual(method(object), 3);
+        assert.strictEqual(method(object), 2);
       });
     });
 
@@ -14898,11 +14914,11 @@
     QUnit.test('should use a key over a path', function(assert) {
       assert.expect(2);
 
-      var object = { 'a.b.c': alwaysThree, 'a': { 'b': { 'c': alwaysFour } } };
+      var object = { 'a.b': alwaysOne, 'a': { 'b': alwaysTwo } };
 
-      lodashStable.each(['a.b.c', ['a.b.c']], function(path) {
+      lodashStable.each(['a.b', ['a.b']], function(path) {
         var method = _.method(path);
-        assert.strictEqual(method(object), 3);
+        assert.strictEqual(method(object), 1);
       });
     });
 
@@ -14998,11 +15014,11 @@
     QUnit.test('should work with deep property values', function(assert) {
       assert.expect(2);
 
-      var object = { 'a': { 'b': { 'c': alwaysThree } } };
+      var object = { 'a': { 'b': alwaysTwo } };
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
         var methodOf = _.methodOf(object);
-        assert.strictEqual(methodOf(path), 3);
+        assert.strictEqual(methodOf(path), 2);
       });
     });
 
@@ -15053,11 +15069,11 @@
     QUnit.test('should use a key over a path', function(assert) {
       assert.expect(2);
 
-      var object = { 'a.b.c': alwaysThree, 'a': { 'b': { 'c': alwaysFour } } };
+      var object = { 'a.b': alwaysOne, 'a': { 'b': alwaysTwo } };
 
-      lodashStable.each(['a.b.c', ['a.b.c']], function(path) {
+      lodashStable.each(['a.b', ['a.b']], function(path) {
         var methodOf = _.methodOf(object);
-        assert.strictEqual(methodOf(path), 3);
+        assert.strictEqual(methodOf(path), 1);
       });
     });
 
@@ -15218,7 +15234,7 @@
       assert.strictEqual(actual, isMax ? 1 : 3);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(2);
 
       var objects = [{ 'a': 2 }, { 'a': 3 }, { 'a': 1 }],
@@ -15581,6 +15597,13 @@
 
       var over = _.overArgs(fn, doubled, square);
       assert.deepEqual(over(5, 10), [10, 100]);
+    });
+
+    QUnit.test('should flatten `transforms`', function(assert) {
+      assert.expect(1);
+
+      var over = _.overArgs(fn, [doubled, square], String);
+      assert.deepEqual(over(5, 10, 15), [10, 100, '15']);
     });
 
     QUnit.test('should not transform any argument greater than the number of transforms', function(assert) {
@@ -16015,7 +16038,7 @@
       assert.deepEqual(over('a', 'b', 'c'), ['a', 'a']);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var object = { 'a': 1, 'b': 2 },
@@ -16024,13 +16047,22 @@
       assert.deepEqual(over(object), [2, 1]);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(1);
 
       var object = { 'a': 1, 'b': 2 },
           over = _.over({ 'c': 3 }, { 'a': 1 });
 
       assert.deepEqual(over(object), [false, true]);
+    });
+
+    QUnit.test('should work with `_.matchesProperty` shorthands', function(assert) {
+      assert.expect(2);
+
+      var over = _.over(['a', 2], [['b', 2]]);
+
+      assert.deepEqual(over({ 'a': 1, 'b': 2 }), [false, true]);
+      assert.deepEqual(over({ 'a': 2, 'b': 1 }), [true, false]);
     });
 
     QUnit.test('should provide arguments to predicates', function(assert) {
@@ -16081,11 +16113,12 @@
       assert.expect(2);
 
       var over = _.overEvery(undefined, null);
+
       assert.strictEqual(over(true), true);
       assert.strictEqual(over(false), false);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(2);
 
       var object = { 'a': 1, 'b': 2 },
@@ -16097,7 +16130,7 @@
       assert.strictEqual(over(object), true);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(2);
 
       var object = { 'a': 1, 'b': 2 },
@@ -16107,6 +16140,22 @@
 
       over = _.overEvery({ 'a': 1 }, { 'c': 3 });
       assert.strictEqual(over(object), false);
+    });
+
+    QUnit.test('should work with `_.matchesProperty` shorthands', function(assert) {
+      assert.expect(2);
+
+      var over = _.overEvery(['a', 1], [['b', 2]]);
+
+      assert.strictEqual(over({ 'a': 1, 'b': 2 }), true);
+      assert.strictEqual(over({ 'a': 1, 'b': -2 }), false);
+    });
+
+    QUnit.test('should flatten `predicates`', function(assert) {
+      assert.expect(1);
+
+      var over = _.overEvery(alwaysTrue, [alwaysFalse]);
+      assert.strictEqual(over(), false);
     });
 
     QUnit.test('should provide arguments to predicates', function(assert) {
@@ -16176,11 +16225,12 @@
       assert.expect(2);
 
       var over = _.overSome(undefined, null);
+
       assert.strictEqual(over(true), true);
       assert.strictEqual(over(false), false);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(2);
 
       var object = { 'a': 1, 'b': 2 },
@@ -16192,7 +16242,7 @@
       assert.strictEqual(over(object), false);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(2);
 
       var object = { 'a': 1, 'b': 2 },
@@ -16202,6 +16252,22 @@
 
       over = _.overSome({ 'b': 1 }, { 'a': 2 });
       assert.strictEqual(over(object), false);
+    });
+
+    QUnit.test('should work with `_.matchesProperty` shorthands', function(assert) {
+      assert.expect(2);
+
+      var over = _.overSome(['a', 1], [['b', 2]]);
+
+      assert.strictEqual(over({ 'a': 3, 'b': 2 }), true);
+      assert.strictEqual(over({ 'a': 2, 'b': 3 }), false);
+    });
+
+    QUnit.test('should flatten `predicates`', function(assert) {
+      assert.expect(1);
+
+      var over = _.overSome(alwaysFalse, [alwaysTrue]);
+      assert.strictEqual(over(), true);
     });
 
     QUnit.test('should provide arguments to predicates', function(assert) {
@@ -16901,7 +16967,7 @@
       assert.deepEqual(actual, expected);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var objects = [{ 'a': 1 }, { 'a': 1 }, { 'b': 2 }],
@@ -17078,11 +17144,11 @@
     QUnit.test('should pluck deep property values', function(assert) {
       assert.expect(2);
 
-      var object = { 'a': { 'b': { 'c': 3 } } };
+      var object = { 'a': { 'b': 2 } };
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
         var prop = _.property(path);
-        assert.strictEqual(prop(object), 3);
+        assert.strictEqual(prop(object), 2);
       });
     });
 
@@ -17133,11 +17199,11 @@
     QUnit.test('should pluck a key over a path', function(assert) {
       assert.expect(2);
 
-      var object = { 'a.b.c': 3, 'a': { 'b': { 'c': 4 } } };
+      var object = { 'a.b': 1, 'a': { 'b': 2 } };
 
-      lodashStable.each(['a.b.c', ['a.b.c']], function(path) {
+      lodashStable.each(['a.b', ['a.b']], function(path) {
         var prop = _.property(path);
-        assert.strictEqual(prop(object), 3);
+        assert.strictEqual(prop(object), 1);
       });
     });
 
@@ -17207,11 +17273,11 @@
     QUnit.test('should pluck deep property values', function(assert) {
       assert.expect(2);
 
-      var object = { 'a': { 'b': { 'c': 3 } } },
+      var object = { 'a': { 'b': 2 } },
           propOf = _.propertyOf(object);
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
-        assert.strictEqual(propOf(path), 3);
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
+        assert.strictEqual(propOf(path), 2);
       });
     });
 
@@ -17265,11 +17331,11 @@
     QUnit.test('should pluck a key over a path', function(assert) {
       assert.expect(2);
 
-      var object = { 'a.b.c': 3, 'a': { 'b': { 'c': 4 } } },
+      var object = { 'a.b': 1, 'a': { 'b': 2 } },
           propOf = _.propertyOf(object);
 
-      lodashStable.each(['a.b.c', ['a.b.c']], function(path) {
-        assert.strictEqual(propOf(path), 3);
+      lodashStable.each(['a.b', ['a.b']], function(path) {
+        assert.strictEqual(propOf(path), 1);
       });
     });
 
@@ -17517,15 +17583,15 @@
       assert.expect(3);
 
       var array = [];
-      array.a = { 'b': { 'c': 3 } };
+      array.a = { 'b': 2 };
 
-      var actual = _.pullAt(array, 'a.b.c');
+      var actual = _.pullAt(array, 'a.b');
 
-      assert.deepEqual(actual, [3]);
-      assert.deepEqual(array.a, { 'b': {} });
+      assert.deepEqual(actual, [2]);
+      assert.deepEqual(array.a, {});
 
       try {
-        actual = _.pullAt(array, 'a.b.c.d.e');
+        actual = _.pullAt(array, 'a.b.c');
       } catch (e) {}
 
       assert.deepEqual(actual, [undefined]);
@@ -18099,13 +18165,13 @@
       assert.deepEqual(actual, [0]);
     });
 
-    QUnit.test('`_.' + methodName + '` should work with "_.property" shorthands', function(assert) {
+    QUnit.test('`_.' + methodName + '` should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(func(objects, 'a'), [objects[isFilter ? 1 : 0]]);
     });
 
-    QUnit.test('`_.' + methodName + '` should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('`_.' + methodName + '` should work with `_.matches` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(func(objects, objects[1]), [objects[isFilter ? 1 : 0]]);
@@ -18239,7 +18305,7 @@
       assert.deepEqual(argsList, [[1, 0, clone], [2, 1, clone], [3, 2, clone]]);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(1);
 
       var objects = [{ 'a': 0, 'b': 1 }, { 'a': 1, 'b': 2 }];
@@ -18247,7 +18313,7 @@
       assert.deepEqual(objects, [{ 'a': 0, 'b': 1 }]);
     });
 
-    QUnit.test('should work with "_.matchesProperty" shorthands', function(assert) {
+    QUnit.test('should work with `_.matchesProperty` shorthands', function(assert) {
       assert.expect(1);
 
       var objects = [{ 'a': 0, 'b': 1 }, { 'a': 1, 'b': 2 }];
@@ -18255,7 +18321,7 @@
       assert.deepEqual(objects, [{ 'a': 0, 'b': 1 }]);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var objects = [{ 'a': 0 }, { 'a': 1 }];
@@ -18451,20 +18517,20 @@
     QUnit.test('`_.' + methodName + '` should get deep property values', function(assert) {
       assert.expect(2);
 
-      var object = { 'a': { 'b': { 'c': 3 } } };
+      var object = { 'a': { 'b': 2 } };
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
-        assert.strictEqual(func(object, path), 3);
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
+        assert.strictEqual(func(object, path), 2);
       });
     });
 
     QUnit.test('`_.' + methodName + '` should get a key over a path', function(assert) {
       assert.expect(2);
 
-      var object = { 'a.b.c': 3, 'a': { 'b': { 'c': 4 } } };
+      var object = { 'a.b': 1, 'a': { 'b': 2 } };
 
-      lodashStable.each(['a.b.c', ['a.b.c']], function(path) {
-        assert.strictEqual(func(object, path), 3);
+      lodashStable.each(['a.b', ['a.b']], function(path) {
+        assert.strictEqual(func(object, path), 1);
       });
     });
 
@@ -18554,11 +18620,11 @@
     QUnit.test('`_.' + methodName + '` should follow `path` over non-plain objects', function(assert) {
       assert.expect(2);
 
-      var paths = ['a.b.c', ['a', 'b', 'c']];
+      var paths = ['a.b', ['a', 'b']];
 
       lodashStable.each(paths, function(path) {
-        numberProto.a = { 'b': { 'c': 1 } };
-        assert.strictEqual(func(0, path), 1);
+        numberProto.a = { 'b': 2 };
+        assert.strictEqual(func(0, path), 2);
         delete numberProto.a;
       });
     });
@@ -18574,7 +18640,7 @@
       });
 
       var actual = lodashStable.transform(values, function(result, value) {
-        lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
+        lodashStable.each(['a.b', ['a', 'b']], function(path) {
           result.push(
             func(object, path, value),
             func(null, path, value)
@@ -19095,30 +19161,30 @@
     QUnit.test('`_.' + methodName + '` should set deep property values', function(assert) {
       assert.expect(4);
 
-      var object = { 'a': { 'b': { 'c': oldValue } } };
+      var object = { 'a': { 'b': oldValue } };
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
         var actual = func(object, path, updater);
 
         assert.strictEqual(actual, object);
-        assert.strictEqual(object.a.b.c, value);
+        assert.strictEqual(object.a.b, value);
 
-        object.a.b.c = oldValue;
+        object.a.b = oldValue;
       });
     });
 
     QUnit.test('`_.' + methodName + '` should set a key over a path', function(assert) {
       assert.expect(4);
 
-      var object = { 'a.b.c': oldValue };
+      var object = { 'a.b': oldValue };
 
-      lodashStable.each(['a.b.c', ['a.b.c']], function(path) {
+      lodashStable.each(['a.b', ['a.b']], function(path) {
         var actual = func(object, path, updater);
 
         assert.strictEqual(actual, object);
-        assert.deepEqual(object, { 'a.b.c': value });
+        assert.deepEqual(object, { 'a.b': value });
 
-        object['a.b.c'] = oldValue;
+        object['a.b'] = oldValue;
       });
     });
 
@@ -19654,7 +19720,7 @@
       assert.deepEqual(actual, expected);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(2);
 
       var objects = [{ 'a': 0, 'b': 0 }, { 'a': 0, 'b': 1 }];
@@ -19662,7 +19728,7 @@
       assert.strictEqual(_.some(objects, 'b'), true);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(2);
 
       var objects = [{ 'a': 0, 'b': 0 }, { 'a': 1, 'b': 1}];
@@ -19714,7 +19780,7 @@
       assert.deepEqual(actual, expected);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var actual = lodashStable.map(_.sortBy(objects.concat(undefined), 'b'), 'b');
@@ -19946,7 +20012,7 @@
       assert.deepEqual(args, [40]);
     });
 
-    QUnit.test('`_.' + methodName + '` should work with "_.property" shorthands', function(assert) {
+    QUnit.test('`_.' + methodName + '` should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       var objects = [{ 'x': 30 }, { 'x': 50 }],
@@ -20392,7 +20458,7 @@
       assert.deepEqual(args, [6]);
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(2);
 
       var arrays = [[2], [3], [1]];
@@ -20699,19 +20765,19 @@
       assert.deepEqual(args, [4, 3, array]);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.takeRightWhile(objects, { 'b': 2 }), objects.slice(2));
     });
 
-    QUnit.test('should work with "_.matchesProperty" shorthands', function(assert) {
+    QUnit.test('should work with `_.matchesProperty` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.takeRightWhile(objects, ['b', 2]), objects.slice(2));
     });
 
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.takeRightWhile(objects, 'b'), objects.slice(1));
@@ -20814,18 +20880,18 @@
       assert.deepEqual(args, [1, 0, array]);
     });
 
-    QUnit.test('should work with "_.matches" shorthands', function(assert) {
+    QUnit.test('should work with `_.matches` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.takeWhile(objects, { 'b': 2 }), objects.slice(0, 1));
     });
 
-    QUnit.test('should work with "_.matchesProperty" shorthands', function(assert) {
+    QUnit.test('should work with `_.matchesProperty` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.takeWhile(objects, ['b', 2]), objects.slice(0, 1));
     });
-    QUnit.test('should work with "_.property" shorthands', function(assert) {
+    QUnit.test('should work with `_.property` shorthands', function(assert) {
       assert.expect(1);
 
       assert.deepEqual(_.takeWhile(objects, 'b'), objects.slice(0, 2));
@@ -23518,7 +23584,7 @@
       assert.deepEqual(args, [objects[0]]);
     });
 
-    QUnit.test('`_.' + methodName + '` should work with "_.property" shorthands', function(assert) {
+    QUnit.test('`_.' + methodName + '` should work with `_.property` shorthands', function(assert) {
       assert.expect(2);
 
       var expected = isSorted ? [{ 'a': 1 }, { 'a': 2 }, { 'a': 3 }] : objects.slice(0, 3),
@@ -23745,10 +23811,10 @@
     QUnit.test('should unset deep property values', function(assert) {
       assert.expect(4);
 
-      lodashStable.each(['a.b.c', ['a', 'b', 'c']], function(path) {
-        var object = { 'a': { 'b': { 'c': null } } };
+      lodashStable.each(['a.b', ['a', 'b']], function(path) {
+        var object = { 'a': { 'b': null } };
         assert.strictEqual(_.unset(object, path), true);
-        assert.deepEqual(object, { 'a': { 'b': {} } });
+        assert.deepEqual(object, { 'a': {} });
       });
     });
 

@@ -33,11 +33,13 @@ to convert each method.
 
 Iteratee arguments are capped to avoid gotchas with variadic iteratees.
 ```js
-// The `lodash/map` iteratee recieves three arguments: (value, index|key, collection).
+// The `lodash/map` iteratee receives three arguments:
+// (value, index|key, collection)
 _.map(['6', '8', '10'], parseInt);
 // → [6, NaN, 2]
 
-// The `lodash/fp/map` iteratee is capped at one argument: (value).
+// The `lodash/fp/map` iteratee is capped at one argument:
+// (value)
 fp.map(parseInt)(['6', '8', '10']);
 // → [6, 8, 10]
 ```
@@ -66,27 +68,29 @@ fp.padCharsStart('-')(3)('a');
 ```
 
 Methods with a fixed arity of one:<br>
-<%= toFuncList(mapping.aryMethod[1]) %>
+<%= toFuncList(_.difference(mapping.aryMethod[1], _.keys(mapping.skipFixed))) %>
 
 Methods with a fixed arity of two:<br>
-<%= toFuncList(mapping.aryMethod[2]) %>
+<%= toFuncList(_.difference(mapping.aryMethod[2], _.keys(mapping.skipFixed))) %>
 
 Methods with a fixed arity of three:<br>
-<%= toFuncList(mapping.aryMethod[3]) %>
+<%= toFuncList(_.difference(mapping.aryMethod[3], _.keys(mapping.skipFixed))) %>
 
 Methods with a fixed arity of four:<br>
-<%= toFuncList(mapping.aryMethod[4]) %>
+<%= toFuncList(_.difference(mapping.aryMethod[4], _.keys(mapping.skipFixed))) %>
 
 #### Rearranged Arguments
 
 Method arguments are rearranged to make composition easier.
 ```js
-// The `lodash/filter` method accepts (collection, iteratee).
+// The `lodash/filter` method is data-first iteratee-last:
+// (collection, iteratee)
 var compact = _.partial(_.filter, _, Boolean);
 compact(['a', null, 'c']);
 // → ['a', 'c']
 
-// The `lodash/fp/filter` method accepts (iteratee, collection)
+// The `lodash/fp/filter` method is iteratee-first data-last:
+// (iteratee, collection)
 var compact = fp.filter(Boolean);
 compact(['a', null, 'c']);
 // → ['a', 'c']
@@ -110,8 +114,8 @@ Methods with custom argument orders:<br>
 Methods with unchanged argument orders:<br>
 <%= toFuncList(_.keys(mapping.skipRearg)) %>
 
-The methods `partial` & `partialRight` accept an array of arguments to partially
-apply as their second parameter.
+The methods `invokeArgs`, `invokeArgsMap`, `partial`, `partialRight`, & `without`
+accept an array of arguments as their second parameter.
 
 #### New Methods
 
@@ -134,7 +138,7 @@ There are <%= _.size(mapping.aliasToReal) %> method aliases:<br>
 
 The `lodash/fp` module **does not** convert chain sequence methods. See
 [Izaak Schroeder’s article](https://medium.com/making-internets/why-using-chain-is-a-mistake-9bc1f80d51ba)
-for more details.
+on using functional composition as an alternative.
 
 ## Convert
 
